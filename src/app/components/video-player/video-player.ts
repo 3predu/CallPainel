@@ -24,14 +24,6 @@ export class VideoPlayerComponent implements AfterViewInit {
   };
 
   ngAfterViewInit(): void {
-    console.log('LOG: ngAfterViewInit foi ACIONADO.');
-    console.log('LOG: Tentando encontrar o player no HTML:', this.youtubePlayer);
-
-    if (this.youtubePlayer) {
-      console.log('LOG: Player ENCONTRADO! Tentando aplicar mute.');
-      this.youtubePlayer.mute();
-    } else {
-      console.error('ERRO: Player NÃO ENCONTRADO no ngAfterViewInit.');
-    }
+    this.youtubePlayer.mute();
   }
 }

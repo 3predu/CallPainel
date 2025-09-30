@@ -1,21 +1,17 @@
 import { Component } from '@angular/core';
-import { CallDisplay } from '../components/call-display/call-display';
-import { VideoPlayerComponent } from '../components/video-player/video-player';
+import { VideoPlayerComponent } from "../components/video-player/video-player";
 
 @Component({
   selector: 'app-home',
-  imports: [VideoPlayerComponent, CallDisplay],
   standalone: true,
+  imports: [VideoPlayerComponent],
   template: `
-    <main class="bg-gray-200 w-screen h-screen p-8 flex gap-8">
-        <div class="w-[70%]">
-            <app-video-player class="w-full h-full"></app-video-player>
-        </div>
-
-        <div class="w-[30%]">
-            <app-call-display class="w-full h-full"></app-call-display>
-        </div>
-    </main>
+  <main class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div class="w-full max-w-4xl p-4">
+      <app-video-player></app-video-player>
+    </div>
+  </main>
+    
   `,
 })
 export default class HomeComponent { }
