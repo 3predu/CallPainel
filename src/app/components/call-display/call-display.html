@@ -1,0 +1,20 @@
+@if (callData) {
+<div
+  class="bg-[#2C3E50] h-full rounded-lg shadow-lg text-white p-8 flex flex-col justify-between"
+>
+  <div class="text-center">
+    <p class="text-lg font-medium tracking-wider mb-4">CHAMADA</p>
+    <h1 class="text-8xl lg:text-9xl font-bold tracking-widest">
+      {{ callData.ticket }}
+    </h1>
+    <p class="text-3xl lg:text-4xl font-light mt-4">{{ callData.category }}</p>
+    <p class="text-4xl lg:text-5xl font-semibold mt-2">
+      {{ callData.patientName }}
+    </p>
+  </div>
+
+  <div class="bg-[#00A99D] rounded-md text-center py-4">
+    <h2 class="text-6xl font-bold">{{ callData.location }}</h2>
+  </div>
+</div>
+}

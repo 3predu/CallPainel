@@ -1,30 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { HeaderComponent } from '../components/header/header';
 import { VideoPlayerComponent } from '../components/video-player/video-player';
-import { CallPanelComponent } from '../components/call-panel/call-panel';
+import { CallDisplayComponent } from '../components/call-display/call-display';
+import { CallHistoryComponent } from '../components/call-history/call-history';
+import { CallService } from '../services/call';
+import { SidebarComponent } from '../components/sidebar/sidebar';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, VideoPlayerComponent, CallPanelComponent],
-  template: `
-    <div class="flex flex-col h-screen w-screen bg-gray-100 font-custom">
-      <app-header></app-header>
-      <main class="flex-grow p-6 lg:p-8 h-screen">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 h-full">
-          <div class="lg:col-span-2 h-full flex items-center justify-center">
-            <app-video-player></app-video-player>
-          </div>
-          <div
-            class="flex-grow bg-white rounded-lg shadow-md p-4 overflow-y-auto"
-          >
-            <div class="lg:col-span-1 h-full">
-              <app-call-panel></app-call-panel>
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
-  `,
+
+  imports: [
+    HeaderComponent,
+    VideoPlayerComponent,
+    CallDisplayComponent,
+    CallHistoryComponent,
+    SidebarComponent,
+  ],
+
+  templateUrl: './index.page.html',
 })
-export default class HomeComponent {}
+export default class HomeComponent {
+  // Injeta o serviço no componente
+  callService = inject(CallService);
+
+  @HostListener('window:keydown.ArrowRight', ['$event'])
+  handleKeydown(event: KeyboardEvent) {
+    event.preventDefault(); // Previne o comportamento padrão da tecla no navegador
+    this.simulateCall(); // Chama a função de simulação
+  }
+
+  // Função para o botão de simulação
+  simulateCall() {
+    this.callService.triggerNewCall({
+      ticket: 'CG-001N',
+      patientName: 'JULIO HEBERT',
+      category: 'CLINICO GERAL',
+      location: 'Guichê 2',
+    });
+    console.log('Simulação de chamada acionada pela tecla ArrowRight');
+  }
+}
