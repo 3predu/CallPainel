@@ -1,0 +1,17 @@
+<header class="bg-[#008280] text-white shadow-md w-full px-6 py-3 flex items-center justify-between">
+  <div class="text-xl font-bold tracking-wider">
+    {{ clinicName }}
+  </div>
+
+  <div class="flex items-center gap-6">
+    <div class="text-right">
+      <div class="font-semibold capitalize text-lg">
+        {{ currentTime$ | async | date:'EEEE, d \'de\' MMMM':'':'pt-BR' }}
+      </div>
+      <div class="font-mono text-2xl tracking-widest">
+        {{ currentTime$ | async | date:'HH:mm' }}
+      </div>
+    </div>
+    <img [src]="logoUrl" alt="Logo da Clínica" class="h-10">
+  </div>
+</header>

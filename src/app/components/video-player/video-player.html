@@ -1,9 +1,6 @@
-<div class="w-full h-full overflow-hidden">
-  <youtube-player
-    #youtubePlayer
-    [videoId]="videoId"
-    [playerVars]="playerVars"
-    width="100%"
-    height="100%">
+<div
+  class="w-full bg-white rounded-lg shadow-md aspect-video overflow-hidden relative"
+>
+  <youtube-player #youtubePlayer [videoId]="videoId" [playerVars]="playerVars">
   </youtube-player>
 </div>
