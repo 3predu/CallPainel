@@ -13,19 +13,21 @@ import { YouTubePlayerModule, YouTubePlayer } from '@angular/youtube-player';
 })
 export class VideoPlayerComponent implements AfterViewInit {
   @ViewChild('youtubePlayer') youtubePlayer!: YouTubePlayer; // Viewchield() para acessar o player do YouTube (elemento filho html), com as propriedades da API do YouTube.
-  videoId = 'WdxYgjjPSjg'; // ID do vídeo do YouTube
+  playListId = 'PLKk3t4T21AZLIHnSZu4tWTiviFWDV-YT5'; // ID da playlist do YouTube - fiz uma playlist não listada
 
-  // Variáveis para controlar o player
+  // Variáveis para controlar o video
   playerVars = {
     autoplay: 1,
     controls: 0,
     showinfo: 0,
     rel: 0,
     loop: 1,
-    playlist: this.videoId, // Para o loop funcionar, o vídeo precisa estar em uma playlist
+    listType: 'playlist' as const,
+    list: this.playListId,
   };
 
-  ngAfterViewInit(): void { //função para iniciar o vídeo mudo
+  ngAfterViewInit(): void {
+    //função para iniciar o vídeo mudo
     this.youtubePlayer.mute();
   }
 }
