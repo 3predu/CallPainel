@@ -1,22 +1,24 @@
-import { Component, HostListener, inject } from '@angular/core';
-import { HeaderComponent } from '../components/header/header';
+import { Component, computed, HostListener, inject } from '@angular/core';
 import { VideoPlayerComponent } from '../components/video-player/video-player';
 import { CallDisplayComponent } from '../components/call-display/call-display';
-import { CallHistoryComponent } from '../components/call-history/call-history';
 import { CallService } from '../services/call';
 import { SidebarComponent } from '../components/sidebar/sidebar';
+import { HeaderComponent } from '../components/header/header';
+import { CommonModule } from '@angular/common';
+import { CallHistoryComponent } from "../components/call-history/call-history";
 
 @Component({
   selector: 'app-home',
   standalone: true,
 
   imports: [
-    HeaderComponent,
+    CommonModule,
     VideoPlayerComponent,
     CallDisplayComponent,
-    CallHistoryComponent,
     SidebarComponent,
-  ],
+    HeaderComponent,
+    CallHistoryComponent
+],
 
   templateUrl: './index.page.html',
 })
@@ -32,12 +34,23 @@ export default class HomeComponent {
 
   // Função para o botão de simulação
   simulateCall() {
-    this.callService.triggerNewCall({
+    const call1 = {
       ticket: 'CG-001N',
       patientName: 'JULIO HEBERT',
       category: 'CLINICO GERAL',
       location: 'Guichê 2',
-    });
+    };
+    const call2 = {
+      ticket: 'OR-002B',
+      patientName: 'PEDRO LUCCA',
+      category: 'ORTOPEDIA',
+      location: 'Guichê 5',
+    };
+
+    const currentTicket = this.callService.currentCall()?.ticket;
+    const newCall = currentTicket === 'CG-001N' ? call2 : call1;
+
+    this.callService.triggerNewCall(newCall);
     console.log('Simulação de chamada acionada pela tecla ArrowRight');
   }
 }

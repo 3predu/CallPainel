@@ -49,7 +49,7 @@ export class CallService {
     // Inicia o timer de 15 segundos para voltar ao estado padrão
     this.callReturnTimer = setTimeout(() => {
       this.returnToDefaultState();
-    }, 15000); // 15 segundos
+    }, 1500); // 15 segundos
   }
 
   //Retorna a aplicação para o estado visual padrão.
