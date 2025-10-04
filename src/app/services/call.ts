@@ -44,7 +44,7 @@ export class CallService {
     // Inicia o timer de 15 segundos para voltar ao estado padrão
     this.callReturnTimer = setTimeout(() => {
       this.returnToDefaultState();
-    }, 1500);
+    }, 15000);
   }
   // Retorna ao estado padrão, desativando o "modo chamada"
   public returnToDefaultState(): void {

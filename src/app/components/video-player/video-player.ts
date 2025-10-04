@@ -18,7 +18,7 @@ export class VideoPlayerComponent implements AfterViewInit {
   // Variáveis para controlar o video
   playerVars = {
     autoplay: 1,
-    controls: 0,
+    controls: 1,
     showinfo: 0,
     rel: 0,
     loop: 1,
@@ -27,7 +27,7 @@ export class VideoPlayerComponent implements AfterViewInit {
   };
 
   ngAfterViewInit(): void {
-    //função para iniciar o vídeo mudo
+    //função para iniciar o vídeo mudo (é impossível o video começar com autoplay + som)
     this.youtubePlayer.mute();
   }
 }

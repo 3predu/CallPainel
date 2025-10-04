@@ -1,22 +1,54 @@
-# painel-chamadas
+# Painel de Chamadas para Sala de Espera
 
-This project was generated with [Analog](https://analogjs.org), the fullstack meta-framework for Angular.
+Este projeto é uma aplicação de página única (SPA) que simula um painel de chamadas para uma sala de espera de clínica. A interface é moderna, reativa e possui animações fluidas para a transição entre os estados de visualização.
 
-## Setup
+A cada nova chamada, a lista de histórico é atualizada em tempo real, exibindo a chamada mais recente no topo. A visualização no painel é limitada aos últimos 4 registros.
 
-Run `npm install` to install the application dependencies.
+O layout foi construído com Tailwind CSS, utilizando uma abordagem responsiva que se adapta a diferentes tamanhos de tela (tamanho mínimo testado visualmente: 1366 x 768).
 
-## Development
+![Imagem 1](tela-1.jpeg)
 
-Run `npm start` for a dev server. Navigate to `http://localhost:5173/`. The application automatically reloads if you change any of the source files.
+![Imagem 2](tela-2.jpeg)
 
-## Build
+## 🛠️ Tecnologias Utilizadas
 
-Run `npm run build` to build the client/server project. The client build artifacts are located in the `dist/analog/public` directory. The server for the API build artifacts are located in the `dist/analog/server` directory.
+Framework: Angular (v20+) com AnalogJS
 
-## Community
+Build Tool: Vite
 
-- Visit and Star the [GitHub Repo](https://github.com/analogjs/analog)
-- Join the [Discord](https://chat.analogjs.org)
-- Follow us on [Twitter](https://twitter.com/analogjs)
-- Become a [Sponsor](https://github.com/sponsors/brandonroberts)
+Linguagem: TypeScript
+
+Estilização: Tailwind CSS
+
+Reatividade: RxJS (para o relógio) e Angular Signals (para o gerenciamento de estado)
+
+Player de Vídeo: @angular/youtube-player
+
+## 🚀 Como Executar o Projeto Localmente
+
+Pré-requisitos
+Node.js: Versão 20.19.1 ou superior.
+
+npm (ou um gerenciador de pacotes compatível como yarn ou pnpm).
+
+Instale as dependências:
+
+Bash
+
+npm install
+Inicie o servidor de desenvolvimento:
+
+Bash
+
+npm run dev
+Abra o projeto no navegador:
+
+O projeto estará disponível em <http://localhost:5173>.
+
+### Como Interagir
+
+Para simular uma nova chamada no painel, pressione a tecla Seta para a Direita (→) no seu teclado e a tela mudará para o "Estado de Chamada".
+
+Após 15 segundos, a tela retornará automaticamente ao estado padrão.
+
+Obs:. Devido as regras de segurança, os navegadores modernos bloqueiam som em vídeo automáticos para não incomodar os usuários, sendo impossível fazer o vídeo iniciar com som automaticamente usando apenas o código da aplicação (Pelo menos não encontrei uma forma de fazer isso.)
