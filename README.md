@@ -6,9 +6,9 @@ A cada nova chamada, a lista de histórico é atualizada em tempo real, exibindo
 
 O layout foi construído com Tailwind CSS, utilizando uma abordagem responsiva que se adapta a diferentes tamanhos de tela (tamanho mínimo testado visualmente: 1366 x 768).
 
-![Imagem 1](tela-1.jpeg)
+![Imagem 1](https://github.com/3predu/CallPainel/blob/b1cf6b28bd5d35275e12ea7f8ebcdde2e21a2ad5/public/tela-1.jpeg)
 
-![Imagem 2](tela-2.jpeg)
+![Imagem 2](https://github.com/3predu/CallPainel/blob/b1cf6b28bd5d35275e12ea7f8ebcdde2e21a2ad5/public/tela-2.jpeg)
 
 ## 🛠️ Tecnologias Utilizadas
 
